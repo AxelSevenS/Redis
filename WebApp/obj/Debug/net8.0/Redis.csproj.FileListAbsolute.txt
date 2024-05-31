@@ -1,0 +1,7 @@
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.csproj.AssemblyReference.cache
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.GeneratedMSBuildEditorConfig.editorconfig
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.AssemblyInfoInputs.cache
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.AssemblyInfo.cs
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.csproj.CoreCompileInputs.cache
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.MvcApplicationPartsAssemblyInfo.cache
+C:\NoSQL\Redis\APi\obj\Debug\net8.0\Redis.sourcelink.json

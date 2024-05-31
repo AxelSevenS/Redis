@@ -1,0 +1,93 @@
+version: '3'
+services:
+  redis1:
+    image: redis:6.0
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis-cluster1.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis2:
+    image: redis:6.0
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./data/redis-cluster2.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis3:
+    image: redis:6.0
+    ports:
+      - "6381:6379"
+    volumes:
+      - ./data/redis-cluster3.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis4:
+    image: redis:6.0
+    ports:
+      - "6382:6379"
+    volumes:
+      - ./data/redis-cluster4.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis5:
+    image: redis:6.0
+    ports:
+      - "6383:6379"
+    volumes:
+      - ./data/redis-cluster5.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis6:
+    image: redis:6.0
+    ports:
+      - "6384:6379"
+    volumes:
+      - ./data/redis-cluster6.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redisCluster
+
+  redis-cluster:
+    image: redis:6.0
+    command: >
+      sh -c "
+        sleep 10;
+        echo 'yes' | redis-cli --cluster create $(getent hosts redis1 | awk '{ print $1 }'):6379 $(getent hosts redis2 | awk '{ print $1 }'):6380 $(getent hosts redis3 | awk '{ print $1 }'):6381 $(getent hosts redis4 | awk '{ print $1 }'):6382 $(getent hosts redis5 | awk '{ print $1 }'):6383 $(getent hosts redis6 | awk '{ print $1 }'):6384 --cluster-replicas 1"
+    depends_on:
+      - redis1
+      - redis2
+      - redis3
+      - redis4
+      - redis5
+      - redis6
+    networks:
+      - redisCluster
+
+  webapp:
+    build:
+      context: ./WebApp/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - REDIS_CONNECTION_STRING=redis1:6379,abortConnect=false
+    networks:
+      - redisCluster
+
+networks:
+  redisCluster:
+    driver: bridge

@@ -1,0 +1,7 @@
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.csproj.AssemblyReference.cache
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.GeneratedMSBuildEditorConfig.editorconfig
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.AssemblyInfoInputs.cache
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.AssemblyInfo.cs
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.csproj.CoreCompileInputs.cache
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.MvcApplicationPartsAssemblyInfo.cache
+C:\NoSQL\Redis\obj\Debug\net8.0\ProjectMana.sourcelink.json
